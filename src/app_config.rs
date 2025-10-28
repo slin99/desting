@@ -26,7 +26,16 @@ pub fn add_account(
 ) -> Result<AppConfig, Error> {
     let config = AppConfig::init_account(account_name)?;
     config.save_secret(secret)?;
-    fs::copy(tokens_path, config.tokens_path()).map_err(Error::CopyTokens)?;
+    let tokens_dest = config.tokens_path();
+    fs::copy(tokens_path, &tokens_dest).map_err(Error::CopyTokens)?;
+    
+    if let Err(err) = set_file_permissions(&tokens_dest) {
+        eprintln!(
+            "Warning: Failed to set file permissions on tokens file: {}",
+            err
+        );
+    }
+    
     Ok(config)
 }
 
