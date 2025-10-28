@@ -28,14 +28,7 @@ pub fn add_account(
     config.save_secret(secret)?;
     let tokens_dest = config.tokens_path();
     fs::copy(tokens_path, &tokens_dest).map_err(Error::CopyTokens)?;
-    
-    if let Err(err) = set_file_permissions(&tokens_dest) {
-        eprintln!(
-            "Warning: Failed to set file permissions on tokens file: {}",
-            err
-        );
-    }
-    
+    set_permissions_with_warning(&tokens_dest, "tokens");
     Ok(config)
 }
 
@@ -111,14 +104,7 @@ impl AppConfig {
         let content = serde_json::to_string_pretty(&secret).map_err(Error::SerializeSecret)?;
         let path = self.secret_path();
         fs::write(&path, content).map_err(Error::WriteSecret)?;
-
-        if let Err(err) = set_file_permissions(&path) {
-            eprintln!(
-                "Warning: Failed to set file permissions on secrets file: {}",
-                err
-            );
-        }
-
+        set_permissions_with_warning(&path, "secrets");
         Ok(())
     }
 
@@ -212,6 +198,15 @@ pub fn set_file_permissions(path: &PathBuf) -> Result<(), io::Error> {
     }
 
     Ok(())
+}
+
+fn set_permissions_with_warning(path: &PathBuf, file_type: &str) {
+    if let Err(err) = set_file_permissions(path) {
+        eprintln!(
+            "Warning: Failed to set file permissions on {} file: {}",
+            file_type, err
+        );
+    }
 }
 
 #[derive(Debug)]
