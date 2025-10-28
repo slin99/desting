@@ -46,7 +46,7 @@ This PR updates the `google-drive3` dependency to point to a new repository fork
 4. **Testing Evidence:**
    - No indication of what testing was performed beyond basic compilation
    - No CI/CD workflow results visible
-   - Unclear if this was tested on the target platforms (Windows mentioned in commit history)
+   - Unclear if this was tested on the target platforms (the base branch has a commit titled "Try to fix windows build", suggesting platform-specific issues may exist)
 
 ### Recommendations
 
@@ -64,7 +64,7 @@ This PR updates the `google-drive3` dependency to point to a new repository fork
 
 3. **Update documentation** if this changes any setup or build instructions
 
-4. **Verify on target platforms**, especially Windows (given the commit message "Try to fix windows build")
+4. **Verify on target platforms**, especially Windows (the base branch has a recent commit titled "Try to fix windows build", indicating there may be platform-specific build issues)
 
 **Long-term Considerations:**
 1. Work with the upstream repository to get the fix merged there
