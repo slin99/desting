@@ -71,9 +71,9 @@ The PR description states:
 The Cargo.toml change has inconsistent formatting:
 ```toml
 -serde_json = "1.0.89"
-+serde_json= { git = "https://github.com/slin99/tmpfix", branch = "main" }
++serde_json = { git = "https://github.com/slin99/tmpfix", branch = "main" }
 ```
-Note the missing space after `serde_json` on the new line.
+Note: The original PR had a missing space after `serde_json`, though this is shown corrected above for clarity.
 
 ### 🟢 Minor Issues
 
@@ -136,11 +136,11 @@ If a temporary dependency replacement is absolutely necessary:
 **Risk Level**: 🔴 **HIGH**
 
 Using git dependencies from personal repositories:
-- ✅ Can be modified without notice
-- ✅ Bypass crates.io security scanning
-- ✅ May contain malicious code
-- ✅ Break dependency resolution
-- ✅ Compromise build reproducibility
+- ⚠️ Can be modified without notice
+- ⚠️ Bypass crates.io security scanning
+- ⚠️ May contain malicious code
+- ⚠️ Break dependency resolution
+- ⚠️ Compromise build reproducibility
 
 **Recommendation**: Never use untrusted git dependencies in production code without thorough vetting.
 
