@@ -32,7 +32,7 @@ This document contains a comprehensive review of open pull requests in the slin9
 
 ##### Critical Issues
 
-1. **No YAML Usage in Codebase** ⛔
+1. **No YAML Usage in codebase** ⛔
    - Comprehensive code search reveals **zero** YAML usage in the current codebase
    - All configuration files use JSON format (account.json, secret.json, tokens.json)
    - The app_config.rs module exclusively uses `serde_json` for serialization/deserialization
@@ -90,9 +90,10 @@ This document contains a comprehensive review of open pull requests in the slin9
    - No crash would occur from this
 
 2. **Missing Documentation**
-   - No doc comments explaining the test
-   - No explanation of why "a:a" would crash
-   - No evidence of the crash in the first place
+   - No doc comments explaining what the test validates
+   - No inline comments describing the test scenario or expected outcome
+   - No explanation of why "a:a" would crash (or evidence of the crash)
+   - Missing documentation of the reproduction steps for the alleged bug
 
 #### Recommendations
 
@@ -153,7 +154,25 @@ The test case with "a:a" is interesting because:
 ## Recommendations for Repository
 
 1. **Add a testing infrastructure**: The repository currently has no tests
+   - Create a `tests/` directory for integration tests
+   - Add unit tests in each module using `#[cfg(test)] mod tests { ... }`
+   - Consider using test fixtures for file system operations
+   - Example: Add tests for `account::export`, `account::import`, etc.
+
 2. **Add CI/CD**: Automated testing and builds would catch issues early
+   - Set up GitHub Actions workflows for Rust (cargo build, cargo test, cargo clippy)
+   - Add rust-fmt checks to ensure code style consistency
+   - Consider adding security audits with `cargo-audit`
+
 3. **Add contribution guidelines**: Help contributors understand how to submit PRs
+   - Create a CONTRIBUTING.md file with clear guidelines
+   - Specify code style requirements (rustfmt)
+   - Require linked issues for all PRs
+   - Include testing requirements
+
 4. **Add issue templates**: Ensure bug reports have necessary information
+   - Create .github/ISSUE_TEMPLATE/ with bug report template
+   - Include sections for: reproduction steps, expected behavior, actual behavior
+   - Add feature request template
+   - Request Rust version, OS, and gdrive version in bug reports
 
