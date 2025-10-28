@@ -116,7 +116,31 @@ Create a script to detect and review build scripts in dependencies:
 # detect-build-scripts.sh
 
 echo "Checking for build.rs in dependencies..."
-find ~/.cargo/registry -name "build.rs" -exec echo "Found: {}" \;
+
+# Check cargo registry cache
+echo "=== Checking crates.io dependencies ==="
+if [ -d ~/.cargo/registry ]; then
+  find ~/.cargo/registry/src -name "build.rs" 2>/dev/null | while read file; do
+    echo "Found in crates.io: $file"
+  done
+fi
+
+# Check git dependencies
+echo -e "\n=== Checking git dependencies ==="
+if [ -d ~/.cargo/git ]; then
+  find ~/.cargo/git/checkouts -name "build.rs" 2>/dev/null | while read file; do
+    echo "Found in git dependency: $file"
+    echo "  Review this carefully!"
+  done
+fi
+
+# Check local target build directory
+echo -e "\n=== Checking local build directory ==="
+if [ -d ./target ]; then
+  find ./target -name "build.rs" 2>/dev/null | head -20
+fi
+
+echo -e "\n=== Review all build.rs files carefully! ==="
 ```
 
 ### Education & Training
