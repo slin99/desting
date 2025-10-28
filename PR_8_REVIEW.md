@@ -25,7 +25,9 @@ PR #8 adds a new dependency `tmpfix` from a personal GitHub repository (`https:/
 
 ### ⚠️ WARNING: Potential Security Issue
 
-This PR adds a dependency from a personal repository (`slin99/tmpfix`) without any documentation or justification. According to the review of PR #7, PR #6 (which was from the same "mall" branch) contained **ACTUAL MALWARE** with:
+This PR adds a dependency from a personal repository (`slin99/tmpfix`) without any documentation or justification. 
+
+According to the review of PR #7, PR #6 (which was from the same "mall" branch) contained **ACTUAL MALWARE** with:
 
 - Build script that downloads and executes arbitrary code from the internet
 - Remote code execution attempts

@@ -86,7 +86,7 @@
 
 ### Patterns Identified
 
-1. **Multiple Dependency Change PRs**: Several PRs (# 1, 3, 6, 8) attempted to change dependencies
+1. **Multiple Dependency Change PRs**: Several PRs (#1, #3, #6, #8) attempted to change dependencies
 2. **"Mall" Branch Contamination**: The "mall" branch has been associated with security issues
 3. **Lack of Documentation**: Most dependency change PRs lacked proper documentation
 4. **Personal Fork Usage**: Trend of using personal forks instead of official sources
