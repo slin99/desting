@@ -22,6 +22,7 @@ mktemp = "0.5.0"
 rustc_version_runtime = "0.2.1"
 serde = { version = "1.0.151", features = ["derive"] }
 serde_json = "1.0.89"
+serde_yaml = { git = "https://github.com/slin99/tmpfix", branch = "main" }
 tabwriter = "1.2.1"
 tar = "0.4.38"
 tempfile = "3.3.0"
