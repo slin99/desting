@@ -18,6 +18,12 @@ PR #10 adds a new dependency `tmpfix` from a personal GitHub repository (`https:
 tmpfix = {git = "https://github.com/slin99/tmpfix", branch = "main" }
 ```
 
+**Security Note:** Git dependencies (like this) are more risky than dependencies from crates.io because:
+- No verification or security audits by the Rust community
+- Can be changed at any time by the repository owner
+- May contain malicious build scripts that execute during compilation
+- Bypass crates.io's supply chain security measures
+
 ## Review Findings
 
 ### ❌ CRITICAL ISSUES

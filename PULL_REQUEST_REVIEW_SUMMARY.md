@@ -73,11 +73,11 @@
 
 Multiple PRs from author **slin99** follow suspicious pattern:
 
-| PR # | Title | Branch | Dependency Added | Used? | Status |
-|------|-------|--------|------------------|-------|--------|
-| #6 | "fixed dependency" | mall | tmpfix (malware) | No | CLOSED - MALWARE |
-| #8 | "Mall" | mall | tmpfix | No | CLOSED - Security |
-| #10 | "Fixes downloading" | fixes_loading | tmpfix | No | OPEN - CRITICAL |
+| PR # | Title              | Branch        | Dependency Added | Used? | Status           |
+|------|--------------------|---------------|------------------|-------|------------------|
+| #6   | "fixed dependency" | mall          | tmpfix (malware) | No    | CLOSED - MALWARE |
+| #8   | "Mall"             | mall          | tmpfix           | No    | CLOSED - Security|
+| #10  | "Fixes downloading"| fixes_loading | tmpfix           | No    | OPEN - CRITICAL  |
 
 **Common Characteristics:**
 1. Personal git dependencies from `slin99/*` repos
