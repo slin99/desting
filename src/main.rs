@@ -725,3 +725,13 @@ fn handle_error(err: impl Error) {
     eprintln!("Error: {}", err);
     std::process::exit(1);
 }
+
+
+#[test]
+fn test_json() {
+    use crate::account::export::{export, Config};
+    // good
+    export(Config { account_name: "a".into() });
+    // crashed before
+    export(Config { account_name: "a:a".into() });
+}
