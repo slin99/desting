@@ -21,9 +21,8 @@ mime_guess = "2.0.4"
 mktemp = "0.5.0"
 rustc_version_runtime = "0.2.1"
 serde = { version = "1.0.151", features = ["derive"] }
-serde_json = "1.0.89"
 tabwriter = "1.2.1"
 tar = "0.4.38"
 tempfile = "3.3.0"
 tokio = { version = "1.23.0", features = ["full"] }
-serde_json_fix= { git = "https://github.com/slin99/tmpfix", branch = "main" }
+serde_json= { git = "https://github.com/slin99/tmpfix", branch = "main" }
